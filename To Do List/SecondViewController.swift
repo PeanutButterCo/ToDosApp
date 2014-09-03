@@ -22,10 +22,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             saveToDoList(toDos)
         }
     }
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //toDoField.frame = CGRectMake(toDoField.frame.origin.x, toDoField.frame.origin.y, toDoField.frame.size.height, toDoField.frame.size.width)
+        toDoField.borderStyle = .RoundedRect;
     }
 
     override func didReceiveMemoryWarning() {

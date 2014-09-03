@@ -21,8 +21,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var toDosTable:UITableView?
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int{
-        //println("count:")
-        //println(toDos.count)
         return toDos.count
     }
     
