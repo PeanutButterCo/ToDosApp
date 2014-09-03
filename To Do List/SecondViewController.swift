@@ -8,8 +8,21 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+
+class SecondViewController: UIViewController, UITextFieldDelegate {
                             
+    @IBOutlet weak var toDoField: UITextField!
+    
+    // Add Btn is pressed
+    @IBAction func addToDo(sender: UIButton) {
+        if toDoField.text != ""{
+            toDos.append(toDoField.text)
+            self.view.endEditing(true)
+            toDoField.text=""
+            saveToDoList(toDos)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +32,17 @@ class SecondViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        // Hides keyboard when "done key is pressed"
+        toDoField.resignFirstResponder()
+        return true
+    }
+    
+    // view is touched
+    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+        // hides keyboard
+        self.view.endEditing(true)
+    }
 }
 
